@@ -53,16 +53,34 @@ color: #757575 цвет вторичного текста
 #2196F3 акцент
 #ffffff белый*/
 .hero {
-  background: #3d3c3c;
+  height: 600px;
+  outline: 1px solid black;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.8),
+      rgba(47, 48, 58, 0.8)
+    ),
+    url(../images/Header.jpg);
+  background-color: #2f303a;
+  background-size: cover;
   text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
 .hero-title {
   padding-top: 200px;
   margin-bottom: 30px;
-  background: #3d3c3c;
+
   color: var(--white-color);
-  font-size: 44px;
+
   text-align: center;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.4;
 }
 
 /* Header class*/
@@ -90,6 +108,7 @@ color: #757575 цвет вторичного текста
   align-items: center;
   margin-left: 85px;
 }
+
 .site-nav .item:not(:last-child) {
   margin-right: 50px;
 }
@@ -117,11 +136,10 @@ color: #757575 цвет вторичного текста
 .contact {
   margin-left: auto;
 }
-
 .site-nav .mail {
   display: flex;
   align-items: center;
-  display: block;
+
   margin-right: 30px;
 
   padding-top: 32px;
@@ -134,15 +152,9 @@ color: #757575 цвет вторичного текста
   letter-spacing: 0.02em;
 }
 
-.mail:hover,
-.mail:focus {
-  color: var(--accent-color);
-}
 .site-nav .phone {
   display: flex;
   align-items: center;
-  display: block;
-
   margin-right: 215 px;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -157,22 +169,27 @@ color: #757575 цвет вторичного текста
 .phone:focus {
   color: var(--accent-color);
 }
-.mail img {
-  margin-right: 10px;
-}
-.phone img {
-  margin-right: 10px;
-}
 .item-title {
   color: var(--primary-text-color);
   font-size: 56px;
 }
-/*hero*/
-.hero-title {
-  font-weight: 900;
-  font-size: 44px;
-  line-height: 1.4;
-  text-align: center;
+
+.contact-icon {
+  margin-right: 10px;
+  fill: var(--title-text-color);
+}
+
+.contacts-icon {
+  margin-right: 10px;
+}
+.site-nav .mail:hover {
+  color: var(--accent-color);
+}
+.mail:hover > .contact-icon {
+  fill: var(--accent-color);
+}
+.phone:hover > .contact-icon {
+  fill: var(--accent-color);
 }
 /*Button*/
 .button {
@@ -201,24 +218,14 @@ color: #757575 цвет вторичного текста
   padding: 0;
   width: 1170px;
 }
-.advantage-img {
-  display: flex;
-  background: #f5f4fa;
-  width: 270px;
-  height: 120px;
-  border-radius: 4px;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-  padding: 25px 100px 25px 100px;
-}
+
 .advantage-item:not(:last-child) {
   padding-right: 30px;
 }
 
 .advantage-section-title {
   color: #212121;
+  margin-top: 30px;
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
@@ -231,6 +238,28 @@ color: #757575 цвет вторичного текста
   margin-top: 10px;
 }
 
+.advantage-item::before {
+  display: block;
+  content: "";
+  height: 120px;
+
+  background-color: #f5f4fa;
+  background-repeat: no-repeat;
+
+  background-position: center;
+}
+.advantage-item:nth-child(1)::before {
+  background-image: url(../images/antenna1.svg);
+}
+.advantage-item:nth-child(2)::before {
+  background-image: url(../images/clock1.svg);
+}
+.advantage-item:nth-child(3)::before {
+  background-image: url(../images/Vector.svg);
+}
+.advantage-item:nth-child(4)::before {
+  background-image: url(../images/astronaut1.svg);
+}
 /*Feature чем занимаемся*/
 
 .feature-section {
@@ -312,6 +341,9 @@ color: #757575 цвет вторичного текста
   width: 270px;
   height: 422px;
   margin-bottom: 94px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 0px 0px 4px 4px;
 }
 .team-features .text {
   color: var(--title-text-color);
@@ -323,15 +355,36 @@ color: #757575 цвет вторичного текста
 }
 .networks {
   display: flex;
-  text-align: center;
-  margin-top: 28px;
-  margin-left: 32px;
-  margin-right: 32px;
-  padding: 0px;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 24px;
 }
 
 .networks-item:not(:last-child) {
   margin-right: 34px;
+}
+
+.team-link {
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  content: "";
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  color: #afb1b8;
+}
+.social-icon {
+  fill: #afb1b8;
+  width: 20px;
+  height: 20px;
+}
+
+.team-link:hover,
+.team-link:focus {
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  color: var(--white-color);
 }
 
 /*Постоянные клиенты*/
@@ -440,6 +493,37 @@ footer {
 .add {
   display: flex;
   margin-left: 69px;
+}
+
+.add-item {
+  display: block;
+  content: "";
+  height: 44px;
+  width: 44px;
+  margin-right: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  background-position: center;
+}
+.add-item:nth-child(1) {
+  background-image: url(../images/instagram2.svg);
+}
+
+.add-item:nth-child(2) {
+  background-image: url(../images/twitter1.svg);
+}
+
+.add-item:nth-child(3) {
+  background-image: url(../images/facebook1.svg);
+}
+
+.add-item:nth-child(4) {
+  background-image: url(../images/linkedin1.svg);
+}
+
+.add-item .link:hover {
+  color: var(--accent-color);
 }
 .add-text {
   margin-top: 70px;
